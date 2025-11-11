@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LegalPad Professional — Secure Document Portal</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif:wght@400;700&family=Noto+Serif+Malayalam:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-container">
+      <div class="login-logo">
+        <div class="login-icon">⚖️</div>
+        <h1 class="login-title">LegalPad Pro</h1>
+        <p class="login-subtitle">Secure Document Management Portal</p>
+      </div>
+
+      <form class="login-form" id="loginForm">
+        <div class="form-group">
+          <label for="username">Email Address</label>
+          <input 
+            type="text" 
+            id="username" 
+            placeholder="Enter your email"
+            value="legal@company.com"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            placeholder="Enter your password"
+            value="••••••••"
+            required>
+        </div>
+
+        <button type="submit" class="login-btn" id="loginBtn">
+          Access Legal Portal
+        </button>
+
+        <div class="demo-accounts">
+          <strong>Demo Access:</strong>
+          <div>📧 legal@company.com / ••••••••</div>
+          <div>📧 admin@lawfirm.com / ••••••••</div>
+          <div>📧 user@legalpad.com / ••••••••</div>
+        </div>
+
+        <div class="login-footer">
+          🔐 Secure TLS Encryption • Enterprise Grade Security
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Application (Hidden until login) -->
+  <div id="mainApp" class="hidden">
+    <header>
+      <div class="logo">⚖️</div>
+      <div style="font-size:18px">LegalPad Professional</div>
+      <div style="margin-left:auto; font-size:14px; color:var(--muted);">
+        Welcome, <span id="userDisplay">User</span> • 
+        <a href="#" onclick="logout()" style="color:var(--accent); text-decoration:none; margin-left:10px;">Logout</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <aside class="controls">
+        <h3>Create Document</h3>
+        <div class="small">Select a template, language and fill the blanks. The preview is print-ready.</div>
+
+        <label for="doctype">Document type</label>
+        <select id="doctype" aria-label="Document type">
+          <option value="poa">Power of Attorney</option>
+          <option value="rental">Rental Agreement</option>
+          <option value="affidavit">Affidavit</option>
+          <option value="noc">No Objection Certificate (NOC)</option>
+        </select>
+
+        <label for="lang">Language</label>
+        <select id="lang" aria-label="Language">
+          <option value="en">English</option>
+          <option value="ml">Malayalam</option>
+        </select>
+
+        <div id="fields"></div>
+
+        <div class="actions">
+          <button class="btn" id="updateBtn">Update Preview</button>
+          <button class="btn" id="printBtn">Print</button>
+        </div>
+
+        <p class="small">Tip: Use the download button (bottom-right) to export a PDF that preserves exact layout and page breaks.</p>
+      </aside>
+
+      <main class="preview-area">
+        <div class="preview-wrap">
+          <div id="preview" class="placeholder">📝 Your document preview will appear here once you start filling the form.</div>
+        </div>
+      </main>
+    </div>
+
+    <button id="downloadBtn" title="Download PDF">⬇</button>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+  <!-- Application JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
